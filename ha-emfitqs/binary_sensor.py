@@ -24,7 +24,7 @@ HOST = '192.168.1.40'
 SENSOR_PREFIX = 'EmfitQS '
 
 SENSOR_TYPES = {
-    'pres': ['Presence', '', 'mdi:hotel']
+    'bed_presence': ['Bed Presence', '', 'mdi:hotel','pres']
 }
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -43,7 +43,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
         sensors = []
         for resource in config[CONF_MONITORED_CONDITIONS]:
             sensor_type = resource.lower()
-            if sensor_type == "pres":         
+            if sensor_type == "bed_presence":         
                 sensors.append(EmfitQSBinarySensor(data.data['ser'], data, sensor_type))
         add_entities(sensors)
         return True
@@ -86,6 +86,7 @@ class EmfitQSBinarySensor(BinarySensorDevice):
         self._name = SENSOR_PREFIX + serial + ' ' + SENSOR_TYPES[self.type][0]
         self._unit = SENSOR_TYPES[self.type][1]
         self._icon = SENSOR_TYPES[self.type][2]
+        self._resource = SENSOR_TYPES[self.type][3]
         self._state = None
 
     @property
@@ -104,7 +105,7 @@ class EmfitQSBinarySensor(BinarySensorDevice):
         self.data.update()
         data = self.data.data
 
-        self._state = data[self.type]
+        self._state = data[self._resource]
 
     @property
     def device_class(self):
