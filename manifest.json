@@ -1,0 +1,8 @@
+{
+  "domain": "emfitqs",
+  "name": "EmfitQS Sleep Monitor",
+  "documentation": "https://github.com/jxlarrea/ha-emfitqs",
+  "dependencies": [],
+  "codeowners": [ "@jxlarrea" ],
+  "requirements": []
+}
