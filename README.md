@@ -52,11 +52,11 @@ binary_sensor:
 
 | Name  | Type | Description |
 | ----- | ---- | ----------- |
-| pres | binary_sensor | Bed presence |
-| hr | sensor | Heart rate (BPM) |
-| rr | sensor | Breath rate (BPM) |
-| act | sensor | Activity level |
-| bed | sensor | Time in bed (seconds) |
-| ser | sensor | Device serial number |
-| fw | sensor | Device firmware version |
+| pres | `binary_sensor` | Bed presence |
+| hr | `sensor` | Heart rate (BPM) |
+| rr | `sensor` | Breath rate (BPM) |
+| act | `sensor` | Activity level |
+| bed | `sensor` | Number of seconds in bed |
+| ser | `sensor` | Device serial number |
+| fw | `sensor` | Device firmware version |
 
