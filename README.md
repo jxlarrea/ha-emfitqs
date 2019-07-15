@@ -2,11 +2,11 @@
 
 ### Emfit QS Sleep Tracker Component for Home Assistant.
 
-This component provides sensors polled directly from Emfit QS Sleep Tracker devices. Useful for automations based on bed presence and sleep detection (via heart rate bpm levels)
-
-**NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
+This component provides sensors polled directly from Emfit QS Sleep Tracker devices. Useful for automations based on bed presence and sleep detection (via heart rate bpm levels).
 
 ![Sensor Card](https://i.imgur.com/rlsxNTC.jpg)
+
+**NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
 ## Supported Features
 * Bed Presence binary sensor
