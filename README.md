@@ -12,8 +12,6 @@ This component provides data pulled locally from Emfit QS Sleep Tracker devices.
 * Heart Rate BPM sensor
 * Breath Rate sensor
 * Activity Level sensor
-* Device Serial Number
-* Device Firmware Version
 
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
 
@@ -37,8 +35,6 @@ sensor:
       - rr
       - act
       - bed
-      - ser
-      - fw
 
 binary_sensor:
   - platform: emfitqs
@@ -57,6 +53,3 @@ binary_sensor:
 | rr | `sensor` | Breath rate (BPM) |
 | act | `sensor` | Activity level |
 | bed | `sensor` | Number of seconds in bed |
-| ser | `sensor` | Device serial number |
-| fw | `sensor` | Device firmware version |
-
