@@ -57,4 +57,4 @@ binary_sensor:
 | seconds_in_bed | `sensor` | Number of seconds in bed |
 
 
-**NOTE:** In Home Assistant, the component sensor names include the device serial number, for example `binary_sensor.emfitqs_012345_presence` and `sensor.emfitqs_012345_heart_rate` where "012345" is the device serial. This allows you to add multiple entries in your config file.
+**NOTE:** In Home Assistant, the component sensor names include the device serial number, for example `binary_sensor.emfitqs_012345_bed_presence` and `sensor.emfitqs_012345_heart_rate` where "012345" is the device serial. This allows you to add multiple entries in your config file.
