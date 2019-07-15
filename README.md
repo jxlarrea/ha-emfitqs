@@ -13,7 +13,7 @@ This component provides data pulled locally from Emfit QS Sleep Tracker devices.
 * Breath Rate sensor
 * Activity Level sensor
 
-![Sensor Card](https://i.imgur.com/UcDtBqY.png)
+![Sensor Card](https://i.imgur.com/UcDtBqY.png =393x244)
 
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
 
