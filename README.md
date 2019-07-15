@@ -15,3 +15,34 @@ This component provides data pulled locally from Emfit QS Sleep Tracker devices.
 * Device Firmware Version
 
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
+
+## Installation
+
+Copy the `ha-emfitqs` directory into your `/config/custom_components` directory.
+
+## Component Configuration
+
+### Sample Configuration
+
+```yaml
+emfitqs:
+
+sensor:
+  - platform: emfitqs
+    host: 192.168.1.x #Replace with your Emfit QS device IP Address.
+    scan_interval: 10
+    resources:
+      - hr
+      - rr
+      - act
+      - bed
+      - ser
+      - fw
+
+binary_sensor:
+  - platform: emfitqs
+    host: 192.168.1.x #Replace with your Emfit QS device IP Address.
+    scan_interval: 10
+    monitored_conditions:
+      - pres
+```
