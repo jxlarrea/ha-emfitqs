@@ -26,10 +26,10 @@ HOST = '192.168.1.40'
 SENSOR_PREFIX = 'EmfitQS '
 
 SENSOR_TYPES = {
-    'hr': ['Heart Rate', 'bpm', 'mdi:heart'],
-    'rr': ['Breath Rate', 'bpm', 'mdi:pinwheel'],
-    'act': ['Activity', 'none', 'mdi:vibrate'],
-    'bed': ['Seconds in Bed', 'seconds', 'mdi:timer']
+    'heart_rate': ['Heart Rate', 'bpm', 'mdi:heart','hr'],
+    'breath_rate': ['Breath Rate', 'bpm', 'mdi:pinwheel','rr'],
+    'activity_level': ['Activity', '', 'mdi:vibrate','act'],
+    'seconds_in_bed': ['Seconds in Bed', 's', 'mdi:timer','']
 }
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -49,7 +49,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
         for resource in config[CONF_RESOURCES]:
             sensor_type = resource.lower()
-            if sensor_type == 'bed':
+            if sensor_type == 'seconds_in_bed':
                 sensors.append(EmfitQSTimeInBedSensor(data.data['ser'], data, sensor_type))
             else:
                 sensors.append(EmfitQSSensor(data.data['ser'], data, sensor_type))
@@ -90,6 +90,7 @@ class EmfitQSTimeInBedSensor(Entity):
         self._name = SENSOR_PREFIX + serial + ' ' + SENSOR_TYPES[self.type][0]
         self._unit = SENSOR_TYPES[self.type][1]
         self._icon = SENSOR_TYPES[self.type][2]
+        self._resource = SENSOR_TYPES[self.type][3]
         self._state = None
 
     @property
@@ -137,6 +138,7 @@ class EmfitQSSensor(Entity):
         self._name = SENSOR_PREFIX + serial + ' ' + SENSOR_TYPES[self.type][0]
         self._unit = SENSOR_TYPES[self.type][1]
         self._icon = SENSOR_TYPES[self.type][2]
+        self._resource = SENSOR_TYPES[self.type][3]
         self._state = None
 
     @property
@@ -159,7 +161,7 @@ class EmfitQSSensor(Entity):
         self.data.update()
         data = self.data.data
 
-        self._state = data[self.type]
+        self._state = data[self._resource]
 
     @property
     def device_state_attributes(self):       
