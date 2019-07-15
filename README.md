@@ -33,28 +33,28 @@ sensor:
     host: 192.168.1.x # Replace with your Emfit QS device IP Address.
     scan_interval: 10
     resources:
-      - hr
-      - rr
-      - act
-      - bed
+      - heart_rate
+      - breath_rate
+      - activity_level
+      - seconds_in_bed
 
 binary_sensor:
   - platform: emfitqs
     host: 192.168.1.x # Replace with your Emfit QS device IP Address.
     scan_interval: 10
     monitored_conditions:
-      - pres
+      - bed_presence
 ```
 
 ### Sensor Resources & Monitored Conditions
 
 | Name  | Type | Description |
 | ----- | ---- | ----------- |
-| pres | `binary_sensor` | Bed presence |
-| hr | `sensor` | Heart rate (BPM) |
-| rr | `sensor` | Breath rate (BPM) |
-| act | `sensor` | Activity level |
-| bed | `sensor` | Number of seconds in bed |
+| bed_presence | `binary_sensor` | Bed presence |
+| heart_rate | `sensor` | Heart rate (BPM) |
+| breath_rate | `sensor` | Breath rate (BPM) |
+| activity_level | `sensor` | Activity level |
+| seconds_in_bed | `sensor` | Number of seconds in bed |
 
 
 **NOTE:** In Home Assistant, the component sensor names include the device serial number, for example `binary_sensor.emfitqs_012345_presence` and `sensor.emfitqs_012345_heart_rate` where "012345" is the device serial. This allows you to add multiple entries in your config file.
