@@ -8,6 +8,7 @@ This component provides data pulled locally from Emfit QS Sleep Tracker devices.
 
 ## Supported Features
 * Bed Presence binary sensor
+* Time in Bed (seconds)
 * Heart Rate BPM sensor
 * Breath Rate sensor
 * Activity Level sensor
