@@ -2,7 +2,7 @@
 
 ### Emfit QS Sleep Tracker Component for Home Assistant.
 
-This component provides data pulled locally from Emfit QS Sleep Tracker devices. Very useful for automations based on bed presence.
+This component provides data pulled locally from Emfit QS Sleep Tracker devices. Very useful for automations based on bed presence and sleep detection (via heart rate levels)
 
 ## Supported Features
 * Bed Presence binary sensor
