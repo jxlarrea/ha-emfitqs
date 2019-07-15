@@ -4,7 +4,7 @@
 
 This component provides sensors polled directly from Emfit QS Sleep Tracker devices. Useful for automations based on bed presence and sleep detection (via heart rate bpm levels)
 
-**NOTE:** This components has only been tested with Emfit QS firmware version 120.2.2.1.
+**NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
 ## Supported Features
 * Bed Presence binary sensor
@@ -57,4 +57,4 @@ binary_sensor:
 | bed | `sensor` | Number of seconds in bed |
 
 
-**NOTE:** In Home Assistant, the component sensor names will append the device serial number, for example `binary_sensor.emfitqs_012345_presence` and `sensor.emfitqs_012345_heart_rate` where "012345" will be your device serial number. This allows you to add multiple entries in your config file.
+**NOTE:** In Home Assistant, the component sensor names include the device serial number, for example `binary_sensor.emfitqs_012345_presence` and `sensor.emfitqs_012345_heart_rate` where "012345" is the device serial. This allows you to add multiple entries in your config file.
