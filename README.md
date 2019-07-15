@@ -48,7 +48,7 @@ binary_sensor:
       - pres
 ```
 
-### Supported Sensors
+### Sensor Resources & Monitored Conditions
 
 | Name  | Type | Description |
 | ----- | ---- | ----------- |
