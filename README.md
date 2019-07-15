@@ -30,7 +30,7 @@ emfitqs:
 
 sensor:
   - platform: emfitqs
-    host: 192.168.1.x #Replace with your Emfit QS device IP Address.
+    host: 192.168.1.x # Replace with your Emfit QS device IP Address.
     scan_interval: 10
     resources:
       - hr
@@ -42,8 +42,16 @@ sensor:
 
 binary_sensor:
   - platform: emfitqs
-    host: 192.168.1.x #Replace with your Emfit QS device IP Address.
+    host: 192.168.1.x # Replace with your Emfit QS device IP Address.
     scan_interval: 10
     monitored_conditions:
       - pres
 ```
+
+### Supported Sensors
+
+| Name  | Type | Description |
+| ----- | ---- | ----------- |
+| hr    | sensor | Heart rate (BPM) |
+| rr    | sensor | Breath rate (BPM) |
+
