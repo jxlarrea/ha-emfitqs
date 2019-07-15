@@ -6,14 +6,14 @@ This component provides sensors polled directly from Emfit QS Sleep Tracker devi
 
 **NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
+![Sensor Card](https://i.imgur.com/rlsxNTC.jpg)
+
 ## Supported Features
 * Bed Presence binary sensor
 * Time in Bed (seconds)
 * Heart Rate BPM sensor
 * Breath Rate sensor
 * Activity Level sensor
-
-![Sensor Card](https://i.imgur.com/0C9OkNG.jpg)
 
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
 
