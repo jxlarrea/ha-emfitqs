@@ -114,12 +114,13 @@ class EmfitQSTimeInBedSensor(Entity):
         data = self.data.data  
         new_presence = self.data.data['pres']
 
+        if new_presence != old_presence:
+            self.last_presence_change = datetime.datetime.now()
+
         if new_presence == "1":            
-            if old_presence != "1":
-                self.last_presence_change = datetime.datetime.now()
             new_ts = datetime.datetime.now() - self.last_presence_change 
             self._state = round(new_ts.total_seconds())
-        else:
+        else:            
             self._state = 0
 
     @property
