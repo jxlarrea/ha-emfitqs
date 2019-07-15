@@ -53,3 +53,5 @@ binary_sensor:
 | rr | `sensor` | Breath rate (BPM) |
 | act | `sensor` | Activity level |
 | bed | `sensor` | Number of seconds in bed |
+
+**NOTE:** In Home Assistant, the component sensor names will append the device serial number, for example `binary_sensor.emfitqs_012345_presence` and `sensor.emfitqs_012345_heart_rate` where "012345" will be your device serial number. This allows you to add multiple entries in your config file.
