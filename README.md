@@ -23,7 +23,7 @@ Copy the `ha-emfitqs` directory into your `/config/custom_components` directory.
 
 ## Component Configuration
 
-### Sample Configuration
+Add the following to your configuration.yaml file:
 
 ```yaml
 emfitqs:
