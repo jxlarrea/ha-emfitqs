@@ -27,7 +27,7 @@ SENSOR_PREFIX = 'EmfitQS '
 
 SENSOR_TYPES = {
     'heart_rate': ['Heart Rate', 'bpm', 'mdi:heart','hr'],
-    'breath_rate': ['Breath Rate', 'bpm', 'mdi:pinwheel','rr'],
+    'respiratory_rate': ['Respiratory Rate', 'bpm', 'mdi:pinwheel','rr'],
     'activity_level': ['Activity', '', 'mdi:vibrate','act'],
     'seconds_in_bed': ['Seconds in Bed', 's', 'mdi:timer','']
 }
