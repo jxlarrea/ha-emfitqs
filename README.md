@@ -12,7 +12,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 * Bed Presence binary sensor
 * Time in Bed (seconds)
 * Heart Rate BPM sensor
-* Breath Rate sensor
+* Respiratory Rate sensor
 * Activity Level sensor
 
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
@@ -34,7 +34,7 @@ sensor:
     scan_interval: 10
     resources:
       - heart_rate
-      - breath_rate
+      - respiratory_rate
       - activity_level
       - seconds_in_bed
 
@@ -52,7 +52,7 @@ binary_sensor:
 | ----- | ---- | ----------- |
 | bed_presence | `binary_sensor` | Bed presence |
 | heart_rate | `sensor` | Heart rate (BPM) |
-| breath_rate | `sensor` | Breath rate (BPM) |
+| respiratory_rate | `sensor` | Respiratory rate (BPM) |
 | activity_level | `sensor` | Activity level |
 | seconds_in_bed | `sensor` | Number of seconds in bed |
 
