@@ -4,7 +4,7 @@
 
 This component provides real-time data polled directly from Emfit QS Sleep Tracker devices. Useful for automations based on bed presence and sleep detection (via heart rate bpm levels).
 
-![Sensor Card](https://i.imgur.com/rlsxNTC.jpg)
+![Sensor Card](https://i.imgur.com/vGzT1Ko.jpg)
 
 **NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
