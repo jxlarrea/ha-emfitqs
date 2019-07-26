@@ -23,7 +23,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 
 ## HACS Installation
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs) Add this repository `https://github.com/jxlarrea/ha-emfitqs` as an "Integration" custom repository in HACS and install the "Emfit QS Sleep Monitor" component.
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs) Add this repository `https://github.com/jxlarrea/ha-emfitqs` as an "Integration" custom repository in HACS and install the "Emfit QS Sleep Tracker" component.
 
 ## Manual Installation
 
