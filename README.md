@@ -8,6 +8,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 
 **NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
+
 ## Supported Features
 * Bed Presence binary sensor
 * Time in Bed (seconds)
@@ -16,6 +17,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 * Activity Level sensor
 
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
+
 
 ## Installation
 
@@ -26,6 +28,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 ## Manual Installation
 
 Copy the `custom_components/ha-emfitqs` directory into your `/config/custom_components` directory.
+
 
 ## Component Configuration
 
