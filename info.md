@@ -1,6 +1,4 @@
-# ha-emfitqs
-
-### Emfit QS Sleep Tracker Component for Home Assistant
+# Emfit QS Sleep Tracker Component for Home Assistant
 
 This component provides real-time data polled directly from Emfit QS Sleep Tracker devices. Useful for automations based on bed presence and sleep detection (via heart rate bpm levels).
 
@@ -8,7 +6,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 
 **NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
-## Supported Features
+### Supported Features
 * Bed Presence binary sensor
 * Time in Bed (seconds)
 * Heart Rate BPM sensor
