@@ -30,6 +30,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 Copy the `custom_components/ha-emfitqs` directory into your `/config/custom_components` directory.
 
 
+
 ## Component Configuration
 
 Add the following to your `configuration.yaml` file:
@@ -54,6 +55,7 @@ binary_sensor:
     monitored_conditions:
       - bed_presence
 ```
+
 
 ### Sensor Resources & Monitored Conditions
 
