@@ -1,6 +1,6 @@
 {
   "domain": "emfitqs",
-  "name": "Emfit QS Sleep Monitor",
+  "name": "Emfit QS Sleep Tracker",
   "documentation": "https://github.com/jxlarrea/ha-emfitqs",
   "dependencies": [],
   "codeowners": [ "@jxlarrea" ],
