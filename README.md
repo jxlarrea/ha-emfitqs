@@ -1,6 +1,6 @@
 # ha-emfitqs
 
-### Emfit QS Sleep Tracker Component for Home Assistant
+## Emfit QS Sleep Tracker Component for Home Assistant
 
 This component provides real-time data polled directly from Emfit QS Sleep Tracker devices. Useful for automations based on bed presence and sleep detection (via heart rate bpm levels).
 
@@ -9,7 +9,7 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 **NOTE:** This component has only been tested with Emfit QS firmware version 120.2.2.1.
 
 
-## Supported Features
+### Supported Features
 * Bed Presence binary sensor
 * Time in Bed (seconds)
 * Heart Rate BPM sensor
@@ -19,19 +19,19 @@ This component provides real-time data polled directly from Emfit QS Sleep Track
 **IMPORTANT:** Your Emfit QS device must be accessible by Home Assistant on your local area network.
 
 
-### Installation
+## Installation
 
-## HACS Installation
+### HACS Installation
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs) Add this repository `https://github.com/jxlarrea/ha-emfitqs` as an "Integration" custom repository in HACS and install the "Emfit QS Sleep Tracker" component.
 
-## Manual Installation
+### Manual Installation
 
 Copy the `custom_components/ha-emfitqs` directory into your `/config/custom_components` directory.
 
 
 
-### Component Configuration
+## Component Configuration
 
 Add the following to your `configuration.yaml` file:
 
