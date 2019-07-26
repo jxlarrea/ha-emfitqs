@@ -1,5 +1,5 @@
 {
-    "aarlo": {
+    "ha-emfitqs": {
         "version": "1.0.0",
         "local_location": "/custom_components/ha-emfitqs/__init__.py",
         "remote_location": "https://raw.githubusercontent.com/jxlarrea/ha-emfitqs/master/custom_components/ha-emfitqs/__init__.py",
