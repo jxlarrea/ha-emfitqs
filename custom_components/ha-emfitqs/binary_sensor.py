@@ -47,8 +47,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
                 sensors.append(EmfitQSBinarySensor(data.data['ser'], data, sensor_type))
         add_entities(sensors)
         return True
-    except requests.exceptions.HTTPError as error:
-        _LOGGER.error(error)
+    except:
+        _LOGGER.error("Error ocurred")
         return False
 
 class EmfitQSData(object):    
@@ -60,21 +60,25 @@ class EmfitQSData(object):
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):      
         entries = {}
-        r = requests.get('http://{0}/dvmstatus.htm'.format(self._host))
-        if r.status_code == 200:
-            elements = r.text.replace("<br>",'').lower().split('\r\n')
-            filtered = list(filter(None, elements))
-            for f in filtered:
-                entry = f.split("=")
-                entry_name = entry[0].replace(':', '').replace(' ', '_').replace(',', '')
-                if entry_name=="pres":
-                    if entry[1]=="0":
-                        entry_value = "off"
+        try:
+            r = requests.get('http://{0}/dvmstatus.htm'.format(self._host))
+            if r.status_code == 200:
+                elements = r.text.replace("<br>",'').lower().split('\r\n')
+                filtered = list(filter(None, elements))
+                for f in filtered:
+                    entry = f.split("=")
+                    entry_name = entry[0].replace(':', '').replace(' ', '_').replace(',', '')
+                    if entry_name=="pres":
+                        if entry[1]=="0":
+                            entry_value = "off"
+                        else:
+                            entry_value = "on"
                     else:
-                        entry_value = "on"
-                else:
-                    entry_value = entry[1]
-                entries[entry_name] = entry_value
+                        entry_value = entry[1]
+                    entries[entry_name] = entry_value
+        except:
+            _LOGGER.error("Error ocurred")
+
         self.data = entries
         _LOGGER.debug("Data = %s", self.data)
         
@@ -102,10 +106,12 @@ class EmfitQSBinarySensor(BinarySensorDevice):
         return self._state
 
     def update(self):
-        self.data.update()
-        data = self.data.data
-
-        self._state = data[self._resource]
+        try:
+            self.data.update()
+            data = self.data.data
+            self._state = data[self._resource]
+        except:
+            _LOGGER.error("Error ocurred")
 
     @property
     def device_class(self):
