@@ -56,8 +56,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
         add_entities(sensors)
         return True
-    except requests.exceptions.HTTPError as error:
-        _LOGGER.error(error)
+    except:
+        _LOGGER.error("Error ocurred.")
         return False
 
 class EmfitQSData(object):    
@@ -65,19 +65,23 @@ class EmfitQSData(object):
     def __init__(self, host):       
         self._host = host
         self.data = None
-
+    
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):      
         entries = {}
-        r = requests.get('http://{0}/dvmstatus.htm'.format(self._host))       
-        if r.status_code == 200:
-            elements = r.text.replace("<br>",'').lower().split('\r\n')
-            filtered = list(filter(None, elements))
-            for f in filtered:
-                entry = f.split("=")
-                entry_name = entry[0].replace(':', '').replace(' ', '_').replace(',', '')
-                entry_value = entry[1]
-                entries[entry_name] = entry_value
+        try:
+            r = requests.get('http://{0}/dvmstatus.htm'.format(self._host))       
+            if r.status_code == 200:
+                elements = r.text.replace("<br>",'').lower().split('\r\n')
+                filtered = list(filter(None, elements))
+                for f in filtered:
+                    entry = f.split("=")
+                    entry_name = entry[0].replace(':', '').replace(' ', '_').replace(',', '')
+                    entry_value = entry[1]
+                    entries[entry_name] = entry_value
+        except:
+            _LOGGER.error("Error ocurred.")
+
         self.data = entries
         _LOGGER.debug("Data = %s", self.data)
 
@@ -108,19 +112,22 @@ class EmfitQSTimeInBedSensor(Entity):
     @property
     def unit_of_measurement(self):
         return self._unit
-
+    
+    @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
-        old_presence = self.data.data['pres']
-        self.data.update()
-        data = self.data.data  
-        new_presence = self.data.data['pres']
-
-        if new_presence == "1":            
-            new_ts = datetime.datetime.now() - self.last_presence_change 
-            self._state = round(new_ts.total_seconds())
-        else:
-            self.last_presence_change = datetime.datetime.now()            
-            self._state = 0
+        try:
+            old_presence = self.data.data['pres']
+            self.data.update()
+            data = self.data.data  
+            new_presence = self.data.data['pres']
+            if new_presence == "1":            
+                new_ts = datetime.datetime.now() - self.last_presence_change 
+                self._state = round(new_ts.total_seconds())
+            else:
+                self.last_presence_change = datetime.datetime.now()            
+                self._state = 0
+        except:
+            _LOGGER.error("Error ocurred.")
 
     @property
     def device_state_attributes(self):       
@@ -156,10 +163,12 @@ class EmfitQSSensor(Entity):
         return self._unit
 
     def update(self):
-        self.data.update()
-        data = self.data.data
-
-        self._state = data[self._resource]
+        try:
+            self.data.update()
+            data = self.data.data
+            self._state = data[self._resource]
+        except:
+            _LOGGER.error("Error ocurred")
 
     @property
     def device_state_attributes(self):       
