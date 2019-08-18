@@ -56,8 +56,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
         add_entities(sensors)
         return True
-    except:
-        _LOGGER.error("Error ocurred.")
+    except Exception as e:
+        _LOGGER.error("Error ocurred: " + repr(e))
         return False
 
 class EmfitQSData(object):    
@@ -70,7 +70,7 @@ class EmfitQSData(object):
     def update(self):      
         entries = {}
         try:
-            r = requests.get('http://{0}/dvmstatus.htm'.format(self._host))       
+            r = requests.get('http://{0}/dvmstatus.htm'.format(self._host), timeout=10)       
             if r.status_code == 200:
                 elements = r.text.replace("<br>",'').lower().split('\r\n')
                 filtered = list(filter(None, elements))
@@ -79,8 +79,9 @@ class EmfitQSData(object):
                     entry_name = entry[0].replace(':', '').replace(' ', '_').replace(',', '')
                     entry_value = entry[1]
                     entries[entry_name] = entry_value
-        except:
-            _LOGGER.error("Error ocurred.")
+            requests.session().close()
+        except Exception as e:
+            _LOGGER.error("Error ocurred: " + repr(e))
 
         self.data = entries
         _LOGGER.debug("Data = %s", self.data)
@@ -126,8 +127,8 @@ class EmfitQSTimeInBedSensor(Entity):
             else:
                 self.last_presence_change = datetime.datetime.now()            
                 self._state = 0
-        except:
-            _LOGGER.error("Error ocurred.")
+        except Exception as e:
+            _LOGGER.error("Error ocurred: " + repr(e))
 
     @property
     def device_state_attributes(self):       
@@ -167,8 +168,8 @@ class EmfitQSSensor(Entity):
             self.data.update()
             data = self.data.data
             self._state = data[self._resource]
-        except:
-            _LOGGER.error("Error ocurred")
+        except Exception as e:
+            _LOGGER.error("Error ocurred: " + repr(e))
 
     @property
     def device_state_attributes(self):       
