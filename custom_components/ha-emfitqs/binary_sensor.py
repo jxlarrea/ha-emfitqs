@@ -47,8 +47,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
                 sensors.append(EmfitQSBinarySensor(data.data['ser'], data, sensor_type))
         add_entities(sensors)
         return True
-    except:
-        _LOGGER.error("Error ocurred")
+    except Exception as e:
+        _LOGGER.error("Error ocurred: " + repr(e))
         return False
 
 class EmfitQSData(object):    
@@ -60,8 +60,8 @@ class EmfitQSData(object):
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):      
         entries = {}
-        try:
-            r = requests.get('http://{0}/dvmstatus.htm'.format(self._host))
+        try:           
+            r = requests.get('http://{0}/dvmstatus.htm'.format(self._host), timeout=10)
             if r.status_code == 200:
                 elements = r.text.replace("<br>",'').lower().split('\r\n')
                 filtered = list(filter(None, elements))
@@ -76,9 +76,9 @@ class EmfitQSData(object):
                     else:
                         entry_value = entry[1]
                     entries[entry_name] = entry_value
-        except:
-            _LOGGER.error("Error ocurred")
-
+            requests.session().close()
+        except Exception as e:
+            _LOGGER.error("Error ocurred: " + repr(e))
         self.data = entries
         _LOGGER.debug("Data = %s", self.data)
         
@@ -110,8 +110,8 @@ class EmfitQSBinarySensor(BinarySensorDevice):
             self.data.update()
             data = self.data.data
             self._state = data[self._resource]
-        except:
-            _LOGGER.error("Error ocurred")
+        except Exception as e:
+            _LOGGER.error("Error ocurred: " + repr(e))
 
     @property
     def device_class(self):
