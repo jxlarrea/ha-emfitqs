@@ -24,7 +24,7 @@ HOST = '192.168.1.40'
 SENSOR_PREFIX = 'EmfitQS '
 
 SENSOR_TYPES = {
-    'bed_presence': ['Bed Presence', '', 'mdi:hotel','pres']
+    'bed_presence': ['Bed Presence', '', 'mdi:bed','pres']
 }
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
