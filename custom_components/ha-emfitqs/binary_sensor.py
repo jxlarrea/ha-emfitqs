@@ -3,7 +3,7 @@ from datetime import timedelta
 import requests
 import voluptuous as vol
 
-from homeassistant.components.binary_sensor import (BinarySensorDevice, PLATFORM_SCHEMA)
+from homeassistant.components.binary_sensor import (BinarySensorEntity, PLATFORM_SCHEMA)
 import homeassistant.helpers.config_validation as cv
 from homeassistant.const import (CONF_MONITORED_CONDITIONS, ATTR_ATTRIBUTION, CONF_HOST, CONF_SCAN_INTERVAL)
 from homeassistant.util import Throttle
@@ -82,7 +82,7 @@ class EmfitQSData(object):
         self.data = entries
         _LOGGER.debug("Data = %s", self.data)
         
-class EmfitQSBinarySensor(BinarySensorDevice):
+class EmfitQSBinarySensor(BinarySensorEntity):
 
     def __init__(self, serial, data, sensor_type):
         self.data = data
