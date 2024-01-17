@@ -35,7 +35,6 @@ Copy the `custom_components/ha-emfitqs` directory into your `/config/custom_comp
 Add the following to your `configuration.yaml` file:
 
 ```yaml
-emfitqs:
 
 sensor:
   - platform: emfitqs
